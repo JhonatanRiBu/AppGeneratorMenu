@@ -43,9 +43,16 @@ defineEmits(['submit'])
 
         <template #form>
             <div class="col-span-6 sm:col-span-6">
-               <InputLabel for="name"value="Nombre del plato" />
-               <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="mt-1 block w-full" />
-               <InputError :message="$page.props.errors.name" class="mt-2" />
+                <div class="columns-2 flex-col items-justify justify-between mt-8">
+                <div class="w-full">
+                    <div class="w-full">
+                            <div class="w-full mr-1">
+                                <InputLabel for="name"value="Nombre del plato"/>
+                                <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="w-full" />
+                                <InputError :message="$page.props.errors.name" class="mt-2" />
+                        </div>
+                    </div>
+                </div>
                <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full mr-1">
@@ -100,6 +107,7 @@ defineEmits(['submit'])
                             <InputError :message="$page.props.errors.ingrediente_id" class="mt-2" />
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </template>

@@ -32,10 +32,10 @@ const form = useForm({
     </div>
 
     <div class="py-12 top-8 relative">
-            <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-10xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="p-12 bg-white border-b border-gray-200">
                             <PlatoForm :form="form"/>
                         </div>
                     </div>

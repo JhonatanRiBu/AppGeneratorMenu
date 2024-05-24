@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PlatoController;
+use App\Http\Controllers\WelcomeController;
+use App\Models\Categ_Ingrediente;
+use App\Models\Categ_Plato;
+use App\Models\Ingrediente;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,21 +21,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
+Route::resource('/platos',PlatoController::class);
+Route::resource('/menus',MenuController::class);
+Route::resource('/categ_ingredientes',Categ_Ingrediente::class);
+Route::resource('/categ_platos',Categ_Plato::class);
+Route::resource('/ingredientes',Ingrediente::class);
+

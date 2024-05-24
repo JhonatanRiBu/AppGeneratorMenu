@@ -21,4 +21,3 @@ import Welcome from '@/Components/Welcome.vue';
     </AppLayout>
 </template>
 
-

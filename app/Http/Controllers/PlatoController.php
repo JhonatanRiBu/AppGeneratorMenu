@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categ_Plato;
+use App\Models\Menu;
 use App\Models\Plato;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -26,7 +28,10 @@ class PlatoController extends Controller
      */
     public function create()
     {
-        //
+        $categ_platos = Categ_Plato::all();
+        $menus = Menu::all();
+
+        return inertia('Platos/Create', ['categ_platos' => $categ_platos, 'menus' => $menus]);
     }
 
     /**

@@ -11,7 +11,6 @@ import InputError from '@/Components/InputError.vue'
 import InputLabel from '@/Components/InputLabel.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
 import TextInput from '@/Components/TextInput.vue'
-import SecondaryButton from '@/Components/SecondaryButton.vue'
 //import CollectionSelector from '@/Components/Common/CollectionSelector.vue'
 
 defineProps({
@@ -23,6 +22,26 @@ defineProps({
         type: Boolean,
         required: false,
         default: false
+    },
+    categ_platos: {
+        type: Object,
+        required: true
+    },
+    ingredientes_condimentos: {
+        type: Object,
+        required: true
+    },
+    ingredientes_abarrotes: {
+        type: Object,
+        required: true
+    },
+    ingredientes_proteinas: {
+        type: Object,
+        required: true
+    },
+    ingredientes_verduras: {
+        type: Object,
+        required: true
     },
 })
 
@@ -67,44 +86,44 @@ defineEmits(['submit'])
                <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full mr-1">
-                            <InputLabel for="ingrediente_id"value="Proteína" />
-                            <select name="ingrediente_id" id="ingrediente_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                <option v-for="ingrediente in ingredientes" :value="ingrediente.id">{{ ingrediente.name }}</option>
+                            <InputLabel for="ing_condimento_id"value="Condimentos" />
+                            <select name="ing_condimento_id" id="ing_condimento_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <option v-for="ingrediente in ingredientes_condimentos" :value="ingrediente.id">{{ ingrediente.name }}</option>
                             </select>
-                            <InputError :message="$page.props.errors.ingrediente_id" class="mt-2" />
+                            <InputError :message="$page.props.errors.ing_condimento_id" class="mt-2" />
                         </div>
                     </div>
                 </div>
                <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full mr-1">
-                            <InputLabel for="ingrediente_id"value="Condimentos" />
-                            <select name="ingrediente_id" id="ingrediente_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                <option v-for="ingrediente in ingredientes" :value="ingrediente.id">{{ ingrediente.name }}</option>
+                            <InputLabel for="ing_proteina_id"value="Proteína" />
+                            <select name="ing_proteina_id" id="ing_proteina_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <option v-for="ingrediente in ingredientes_proteinas" :value="ingrediente.id">{{ ingrediente.name }}</option>
                             </select>
-                            <InputError :message="$page.props.errors.ingrediente_id" class="mt-2" />
+                            <InputError :message="$page.props.errors.ing_proteina_id" class="mt-2" />
                         </div>
                     </div>
                 </div>
                 <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full mr-1">
-                            <InputLabel for="ingrediente_id"value="Verduras" />
-                            <select name="ingrediente_id" id="ingrediente_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                <option v-for="ingrediente in ingredientes" :value="ingrediente.id">{{ ingrediente.name }}</option>
+                            <InputLabel for="ing_verdura_id"value="Verduras" />
+                            <select name="ing_verdura_id" id="ing_verdura_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <option v-for="ingrediente in ingredientes_verduras" :value="ingrediente.id">{{ ingrediente.name }}</option>
                             </select>
-                            <InputError :message="$page.props.errors.ingrediente_id" class="mt-2" />
+                            <InputError :message="$page.props.errors.ing_verdura_id" class="mt-2" />
                         </div>
                     </div>
                 </div>
                 <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full mr-1">
-                            <InputLabel for="ingrediente_id"value="Abarrotes" />
-                            <select name="ingrediente_id" id="ingrediente_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                <option v-for="ingrediente in ingredientes" :value="ingrediente.id">{{ ingrediente.name }}</option>
+                            <InputLabel for="ing_abarrote_id"value="Abarrotes" />
+                            <select name="ing_abarrote_id" id="ing_abarrote_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <option v-for="ingrediente in ingredientes_abarrotes" :value="ingrediente.id">{{ ingrediente.name }}</option>
                             </select>
-                            <InputError :message="$page.props.errors.ingrediente_id" class="mt-2" />
+                            <InputError :message="$page.props.errors.ing_abarrote_id" class="mt-2" />
                         </div>
                     </div>
                 </div>

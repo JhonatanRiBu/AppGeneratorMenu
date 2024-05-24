@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            Categ_PlatoSeeder::class,
+            Categ_IngredienteSeeder::class,
+            IngredienteSeeder::class
+        ]);
     }
 }

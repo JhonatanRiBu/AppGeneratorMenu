@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('platos', function (Blueprint $table) {
+        Schema::create('ingrediente_plato', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('categ_plato_id');
+            $table->unsignedBigInteger('plato_id');
+            $table->unsignedBigInteger('ingrediente_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('platos');
+        Schema::dropIfExists('ingrediente_plato');
     }
 };

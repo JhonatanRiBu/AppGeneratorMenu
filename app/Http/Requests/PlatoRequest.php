@@ -27,15 +27,15 @@ class PlatoRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:100', Rule::unique(table: 'platos', column: 'name')
             ],
-            'categ_plato' => ['required', 'string',
-            'max:30', Rule::unique(table: 'categ_platos', column: 'name')
+            'categ_plato_id' => ['required','integer', Rule::exists(table: 'categ__platos', column: 'id')
             ],
         ];
     }
     public function messages(): array
     {
         return [
-            'name.unique' => ('El nombre del plato ya existe')
+            'name.unique' => ('El nombre del plato ya existe'),
+            'categ_plato_id' => ('La categoria no existe')
         ];
     }
 }

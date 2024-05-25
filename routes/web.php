@@ -22,6 +22,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/views', [PlatoController::class, 'view'])->name('platos.view');
 
 Route::resource('/platos',PlatoController::class);
 Route::resource('/menus',MenuController::class);

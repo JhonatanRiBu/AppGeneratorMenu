@@ -37,12 +37,14 @@ const form = useForm({
 </script>
 
 <template>
-    <div class="flex justify-center items-center ">
-    <div class="flex gap-10 top-10 left-10 absolute">
+    <div class="flex justify-center items-center">
+    <div class="flex gap-10 top-6 left-8 absolute">
         <ButtonArrow :href="route('platos.index')"/>
         <SectionTitle>
             <template #title>
-                {{ updating ? 'Editar Plato' : 'Crear Nuevo Plato' }}
+                <div class="sm:text-center">
+                    {{ updating ? 'Editar Plato' : 'Crear Nuevo Plato' }}
+                </div>
             </template>
         </SectionTitle>
     </div>
@@ -55,7 +57,7 @@ const form = useForm({
                             <PlatoForm :form="form" :categ_platos="categ_platos" :ingredientes_condimentos="ingredientes_condimentos"
                             :ingredientes_abarrotes="ingredientes_abarrotes"
                             :ingredientes_proteinas="ingredientes_proteinas"
-                            :ingredientes_verduras="ingredientes_verduras"/>
+                            :ingredientes_verduras="ingredientes_verduras" @submit="form.post(route('platos.store'))"/>
                         </div>
                     </div>
                 </div>

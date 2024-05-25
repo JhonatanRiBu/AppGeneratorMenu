@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\Plato;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Http\Requests\PlatoRequest;
 
 class PlatoController extends Controller
 {
@@ -55,9 +56,10 @@ class PlatoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlatoRequest $request)
     {
-        //
+        Plato::create($request->validated());
+        return redirect()->route('platos.index');
     }
 
     /**

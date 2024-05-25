@@ -75,57 +75,25 @@ defineEmits(['submit'])
         </template>
 
         <template #form>
-            <div class="col-span-8 sm:col-span-8 -mt-10 relative">
+            <div class="col-span-6 sm:col-span-6">
                 <div>
                 <div class="w-full">
-                    <div class="w-full mt-4">
-                            <div class="w-full mr-1">
+                    <div class="w-full mt-6">
+                            <div class="w-full mr-4">
                                 <InputLabel for="name"value="Nombre del plato"/>
                                 <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="w-full" />
                                 <InputError :message="$page.props.errors.name" class="mt-2" />
                         </div>
                     </div>
                 </div>
-               <div class="w-full mt-4">
+               <div class="w-full mt-6">
                     <div class="flex">
-                        <div class="w-full mr-1">
+                        <div class="w-full">
                             <InputLabel for="categ_plato_id"value="Categoria" />
                             <select name="categ_plato_id" id="categ_plato_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                                 <option v-for="cat in categ_platos" :value="cat.id">{{ cat.name }}</option>
                             </select>
                             <InputError :message="$page.props.errors.categ_plato_id" class="mt-2" />
-                        </div>
-                    </div>
-                </div>
-               <div class="w-full mt-4">
-                    <div class="flex">
-                        <div class="w-full mr-1">
-                            <InputLabel for="ing_condimentos"value="Condimentos" />
-                            <CollectionSelector name="ing_condimentos" id="ing_condimentos" :collection="ingredientes_condimentos" @onIngCondimentos="onIngCondimentos"/>
-                        </div>
-                    </div>
-                </div>
-               <div class="w-full mt-4">
-                    <div class="flex">
-                        <div class="w-full mr-1">
-                            <InputLabel for="ing_verduras"value="Verduras" />
-                            <CollectionSelector name="ing_verduras" id="ing_verduras" :collection="ingredientes_verduras" @onIngVerduras="onIngVerduras"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full mt-4">
-                    <div class="flex">
-                        <div class="w-full mr-1">
-                            <InputLabel for="ing_proteinas"value="Proteínas" />
-                            <CollectionSelector name="ing_proteinas" id="ing_proteinas" :collection="ingredientes_proteinas" @onIngProteinas="onIngProteinas"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full mt-4">
-                    <div class="flex">
-                        <div class="w-full mr-1">
-                            <InputLabel for="ing_abarrotes"value="Abarrotes" />
-                            <CollectionSelector name="ing_abarrotes" id="ing_abarrotes" :collection="ingredientes_abarrotes" @onIngAbarrotes="onIngAbarrotes"/>
                         </div>
                     </div>
                 </div>

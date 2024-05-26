@@ -1,23 +1,28 @@
 <script>
     export default {
-        name: 'MenusCreate'
+        name: 'MenusEdit'
     }
 </script>
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 import SectionTitle from '../../Components/SectionTitle.vue';
 import ButtonArrow from '../../Components/Common/ButtonArrow.vue';
-import MenuForm from '@/Components/Menus/Form.vue';
+import MenuForm from '../../Components/Menus/Form.vue';
 
-defineProps({
-    platos: {
+const props = defineProps({
+    menu: {
         type: Object,
         required: true
     },
+    platos: {
+        type: Object,
+        required: true
+    }
 })
 const form = useForm({
-    name: '',
-    plato_id: ''
+    name: props.menu.name,
+    plato_id: props.menu.plato_id,
+    platos: props.platos.name
 })
 </script>
 
@@ -28,7 +33,7 @@ const form = useForm({
         <SectionTitle>
             <template #title>
                 <div class="sm:text-center">
-                    {{ updating ? 'Editar Menu' : 'Crear Nuevo Menu' }}
+                    Editar Menu
                 </div>
             </template>
         </SectionTitle>
@@ -39,7 +44,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-12 bg-white border-b border-gray-200">
-                            <MenuForm :form="form" :platos="platos" @submit="form.post(route('menus.store'))"/>
+                            <MenuForm :form="form" :updating="true" :platos="platos" @submit="form.put(route('menus.update',menu.id))"/>
                         </div>
                     </div>
                 </div>
@@ -47,4 +52,3 @@ const form = useForm({
     </div>
     </div>
 </template>
-

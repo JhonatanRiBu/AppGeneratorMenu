@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MenuRequest;
+use App\Http\Requests\PlatoRequest;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Plato;
 
 class MenuController extends Controller
 {
@@ -14,7 +17,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::paginate(25);
+        $menus = Menu::paginate(5);
         return inertia('Menus/Index', ['menus' => $menus]);
     }
 
@@ -25,7 +28,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        $platos = Plato::all();
+        return inertia('Menus/Create',[
+            'platos' => $platos
+        ]);
     }
 
     /**
@@ -34,9 +40,10 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MenuRequest $request)
     {
-        //
+        Menu::create($request->validated());
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -56,9 +63,12 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Menu $menu)
     {
-        //
+        $platos = Plato::select()->get();
+        return inertia('Menus/Edit', [
+            'menu' => $menu, 'platos' => $platos
+        ]);
     }
 
     /**
@@ -68,9 +78,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MenuRequest $request, Menu $menu)
     {
-        //
+        $menu->update($request->validated());
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -79,8 +90,9 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('menus.index');
     }
 }

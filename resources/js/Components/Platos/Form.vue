@@ -27,41 +27,7 @@ defineProps({
         type: Object,
         required: true
     },
-    ingredientes_condimentos: {
-        type: Object,
-        required: true
-    },
-    ingredientes_abarrotes: {
-        type: Object,
-        required: true
-    },
-    ingredientes_proteinas: {
-        type: Object,
-        required: true
-    },
-    ingredientes_verduras: {
-        type: Object,
-        required: true
-    },
 })
-
-const ing_condimentosSelected = ref([])
-const ing_verdurasSelected = ref([])
-const ing_abarrotesSelected = ref([])
-const ing_proteinasSelected = ref([])
-
-const onIngCondimentos = (_ing_condimentos) => {
-    ing_condimentosSelected.value = _ing_condimentos
-}
-const onIngVerduras = (_ing_verduras) => {
-    ing_verdurasSelected.value = _ing_verduras
-}
-const onIngAbarrotes = (_ing_abarrotes) => {
-    ing_abarrotesSelected.value = _ing_abarrotes
-}
-const onIngProteinas = (_ing_proteinas) => {
-    ing_proteinasSelected.value = _ing_proteinas
-}
 
 defineEmits(['submit'])
 </script>

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('categ_plato_id');
-            $table->unsignedBigInteger('ingrediente_id');
             $table->timestamps();
         });
     }

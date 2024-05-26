@@ -14,25 +14,10 @@ defineProps({
         type: Object,
         required: true
     },
-     ingredientes_condimentos: {
-        type: Object,
-        required: true
-    },
-    ingredientes_abarrotes: {
-        type: Object,
-        required: true
-    },
-    ingredientes_proteinas: {
-        type: Object,
-        required: true
-    },
-    ingredientes_verduras: {
-        type: Object,
-        required: true
-    },
 })
 const form = useForm({
-    name: ''
+    name: '',
+    categ_plato_id: ''
 })
 </script>
 
@@ -54,10 +39,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-12 bg-white border-b border-gray-200">
-                            <PlatoForm :form="form" :categ_platos="categ_platos" :ingredientes_condimentos="ingredientes_condimentos"
-                            :ingredientes_abarrotes="ingredientes_abarrotes"
-                            :ingredientes_proteinas="ingredientes_proteinas"
-                            :ingredientes_verduras="ingredientes_verduras" @submit="form.post(route('platos.store'))"/>
+                            <PlatoForm :form="form" :categ_platos="categ_platos" @submit="form.post(route('platos.store'))"/>
                         </div>
                     </div>
                 </div>

@@ -47,7 +47,7 @@ defineEmits(['submit'])
                     <div class="w-full mt-6">
                             <div class="w-full mr-4">
                                 <InputLabel for="name"value="Nombre del plato"/>
-                                <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="w-full" />
+                                <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="w-full sm:w-96" />
                                 <InputError :message="$page.props.errors.name" class="mt-2" />
                         </div>
                     </div>
@@ -56,7 +56,7 @@ defineEmits(['submit'])
                     <div class="flex">
                         <div class="w-full">
                             <InputLabel for="categ_plato_id"value="Categoria" />
-                            <select name="categ_plato_id" id="categ_plato_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <select name="categ_plato_id" v-model="form.categ_plato_id" id="categ_plato_id" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm sm:w-96">
                                 <option v-for="cat in categ_platos" :value="cat.id">{{ cat.name }}</option>
                             </select>
                             <InputError :message="$page.props.errors.categ_plato_id" class="mt-2" />

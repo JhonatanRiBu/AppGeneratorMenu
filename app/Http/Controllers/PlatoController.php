@@ -19,7 +19,7 @@ class PlatoController extends Controller
      */
     public function index()
     {
-        $platos = Plato::paginate(25);
+        $platos = Plato::paginate(5);
         return inertia('Platos/Index',['platos'=>$platos]);
     }
 
@@ -69,9 +69,11 @@ class PlatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plato $plato)
     {
-        //
+        //$categ_platos = Categ_Plato::where('id',$plato->categ_plato_id)->get();
+        $categ_platos = Categ_Plato::select()->get();
+        return inertia('Platos/Edit', ['plato' => $plato, 'categ_platos' => $categ_platos]);
     }
 
     /**
@@ -81,9 +83,10 @@ class PlatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PlatoRequest $request, Plato $plato)
     {
-        //
+        $plato->update($request->validated());
+        return redirect()->route('platos.index');
     }
 
     /**
@@ -92,8 +95,9 @@ class PlatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Plato $plato)
     {
-        //
+        $plato->delete();
+        return redirect()->route('platos.index');
     }
 }

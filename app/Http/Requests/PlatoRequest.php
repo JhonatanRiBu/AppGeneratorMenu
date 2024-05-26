@@ -28,7 +28,7 @@ class PlatoRequest extends FormRequest
             'name' => ['required', 'string', 'max:100', Rule::unique(table: 'platos', column: 'name')
             ],
             'categ_plato_id' => ['required',
-            Rule::exists(table:'categ_platos', column: 'id')
+            Rule::exists(table:'categ__platos', column: 'id')
             ],
         ];
     }

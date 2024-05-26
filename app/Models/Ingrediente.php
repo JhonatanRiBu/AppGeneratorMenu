@@ -14,9 +14,9 @@ class Ingrediente extends Model
     {
         return $this->belongsTo(Categ_Ingrediente::class);
     }
-    public function plato()
+    public function platos()
     {
-        return $this->belongsTo(Plato::class);
+        return $this->belongsToMany(Plato::class);
     }
 
 }

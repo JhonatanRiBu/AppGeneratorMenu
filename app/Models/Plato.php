@@ -16,7 +16,7 @@ class Plato extends Model
     }
     public function ingredientes()
     {
-        return $this->hasMany(Ingrediente::class);
+        return $this->belongsToMany(Ingrediente::class);
     }
     public function menus()
     {

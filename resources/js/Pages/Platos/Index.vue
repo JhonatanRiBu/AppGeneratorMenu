@@ -29,6 +29,7 @@ import { Link } from '@inertiajs/vue3';
                 <Link :href="route('platos.create')" class="cursor-pointer text-2xl">Visualizar Platos</Link>
             </div>
         </div>
+        
         </div>
     </div>
 </template>

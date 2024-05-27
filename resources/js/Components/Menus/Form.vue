@@ -5,6 +5,7 @@ export default {
 </script>
 
 <script setup>
+
 import {ref} from 'vue'
 import FormSection from '@/Components/FormSection.vue'
 import InputError from '@/Components/InputError.vue'
@@ -29,6 +30,12 @@ defineProps({
     },
 })
 
+const platosSelected = ref([])
+
+const onPlatos = (_platos) => {
+    platosSelected.value = _platos
+}
+
 defineEmits(['submit'])
 </script>
 
@@ -52,7 +59,7 @@ defineEmits(['submit'])
                         </div>
                     </div>
                 </div>
-               <div class="w-full mt-6">
+               <!-- <div class="w-full mt-6">
                     <div class="flex">
                         <div class="w-full">
                             <InputLabel for="plato_id"value="Plato" />
@@ -62,6 +69,10 @@ defineEmits(['submit'])
                             <InputError :message="$page.props.errors.plato_id" class="mt-2" />
                         </div>
                     </div>
+                </div> -->
+                <div class="w-full ml-1">
+                    <InputLabel for="platos"value="Platos" />
+                    <CollectionSelector name="platos" id="platos" :collection="platos" @onPlatos="onPlatos"/>
                 </div>
                 </div>
             </div>
@@ -75,3 +86,5 @@ defineEmits(['submit'])
         </template>
     </FormSection>
 </template>
+
+

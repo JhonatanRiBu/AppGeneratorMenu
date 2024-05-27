@@ -27,11 +27,7 @@ class MenuRequest extends FormRequest
         return [
             'name' => [
                 'required', 'string', 'max:100', Rule::unique(table: 'menus', column: 'name')
-            ],
-            'plato_id' => [
-                'required',
-                Rule::exists(table: 'platos', column: 'id')
-            ],
+            ]
         ];
     }
     public function messages(): array

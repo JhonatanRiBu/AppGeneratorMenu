@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Menu extends Model
 {
     protected $guarded = [];
     use HasFactory;
-    public function platos()
+    public function platos():BelongsToMany
     {
         return $this->belongsToMany(Plato::class);
     }

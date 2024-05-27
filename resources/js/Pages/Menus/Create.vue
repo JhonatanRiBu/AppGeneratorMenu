@@ -17,7 +17,6 @@ defineProps({
 })
 const form = useForm({
     name: '',
-    plato_id: ''
 })
 </script>
 

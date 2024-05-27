@@ -29,9 +29,7 @@ class MenuController extends Controller
     public function create()
     {
         $platos = Plato::all();
-        return inertia('Menus/Create',[
-            'platos' => $platos
-        ]);
+        return inertia('Menus/Create',['platos' => $platos]);
     }
 
     /**
@@ -42,7 +40,12 @@ class MenuController extends Controller
      */
     public function store(MenuRequest $request)
     {
-        Menu::create($request->validated());
+        dd($request);
+        $menu = $request->all();
+        $menu_create = Menu::create($menu);
+
+        $menu_create->platos()->attach($request->input('platosSelected'));
+
         return redirect()->route('menus.index');
     }
 

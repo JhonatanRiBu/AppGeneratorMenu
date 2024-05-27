@@ -9,7 +9,7 @@ defineProps({
 
 const currentSelection = ref(1)
 const selection = ref([])
-const emit = defineEmits(['onIngCondimentos','onIngVerduras', 'onIngAbarrotes','onIngProteinas'])
+const emit = defineEmits(['onPlatos'])
 
 const handleAddToSelection = () => {
     let alreadyExists = false
@@ -26,17 +26,11 @@ const handleAddToSelection = () => {
         return
     }
     selection.value.push(currentSelection.value)
-    emit('onIngCondimentos', selection.value)
-    emit('onIngAbarrotes', selection.value)
-    emit('onIngVerduras', selection.value)
-    emit('onIngProteinas',selection.value)
+    emit('onPlatos', selection.value)
 }
 const handleRemoveSelection = (index) => {
     selection.value = selection.value.filter(item => item.id !== index)
-    emit('onIngCondimentos', selection.value)
-    emit('onIngAbarrotes', selection.value)
-    emit('onIngVerduras', selection.value)
-    emit('onIngProteinas',selection.value)
+
 }
 
 
